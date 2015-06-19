@@ -1,0 +1,43 @@
+<% content_for :title do %>
+  Cadastro
+<% end %>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  
+  <%= devise_error_messages! %>
+
+
+<div class="row">
+  <div class="control-group">
+    <div class="col-xs-12 col-md-5">
+      <%= f.label "E-mail", class: 'control-label' %><br />
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="control-group">
+    <div class="col-xs-12 col-md-5">
+      <%= f.label "Senha" %>
+      <% if @validatable %>
+      <em>(<%= @minimum_password_length %> caracteres)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="control-group">
+    <div class="col-xs-12 col-md-5">
+      <%= f.label "Confirme a senha" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    </div>
+  </div>
+</div>
+<br>
+
+  <%= f.submit "Cadastrar", class: "btn btn-success" %>
+<% end %>

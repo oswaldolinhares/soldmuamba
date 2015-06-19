@@ -1,0 +1,58 @@
+
+  <%= fields_for :building_attributes do |building_form| %>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+      <%= building_form.label "Tipo de Imóvel" %>
+      <%= building_form.text_field :building_type, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+      <%= building_form.label "Área" %>
+      <%= building_form.text_field :area, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+      <%= building_form.label 'Endereço' %>
+      <%= building_form.text_field :address, class: 'form-control'  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">      
+      <%= building_form.label 'Número de Quartos' %>
+      <%= building_form.text_field :rooms_number, class: 'form-control'  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+      <%= building_form.label "Vagas de Estacionamento" %>
+      <%= building_form.text_field :parking_number, class: 'form-control'  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+      <%= building_form.label "Descrição" %>
+      <%= building_form.text_area :description, class: 'form-control'  %>
+      </div>
+    </div>
+  </div>
+
+  <% end %>

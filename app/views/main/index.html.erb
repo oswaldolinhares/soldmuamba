@@ -1,0 +1,13 @@
+<% content_for :title do %>
+  Anúncios
+<% end %>
+
+<% @ads.each do |ad| %>
+  <div style="float: left; margin-right: 2em;">
+    <h3 class="title-text text-center"><%= ad.title.capitalize %></h3>
+    <%= link_to(image_tag(ad.photo.thumb.url), ad) %>
+    <div class="retangle">
+      <p class="text-center"><%= number_to_currency(ad.price, :unit => "R$", :separator => ",", :delimiter => "", :format => "%u %n") %></p>
+    </div>
+  </div>
+<% end %>

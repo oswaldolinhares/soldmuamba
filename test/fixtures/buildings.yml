@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  area: MyString
+  address: MyString
+  rooms_number: MyString
+  parking_number: MyString
+  description: MyText
+  user_id: 
+
+two:
+  type: 
+  area: MyString
+  address: MyString
+  rooms_number: MyString
+  parking_number: MyString
+  description: MyText
+  user_id: 

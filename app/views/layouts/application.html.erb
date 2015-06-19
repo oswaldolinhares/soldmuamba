@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SoldMuamba</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <strong>Email: </strong>suporte@soldmuamba.com
+                    &nbsp;&nbsp;
+                    <strong>Telefone: </strong>+55 83 9999-9999
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- HEADER END-->
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <p class="styled-logo">SoldMuamba</p>
+                </div>
+            </div>
+
+            <div class="left-div">
+                <div class="user-settings-wrapper">
+                    <ul class="nav">      
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+                            <li><%= link_to "Início", inicio_path %></li>
+                            <% if current_user %>
+                            <li><%= link_to "My Ads", ads_path %></li>
+                            <li><%= link_to "Novo Ad", new_ad_path %></li>
+                            <li><%= link_to current_user.email, edit_user_registration_path(current_user) %></li>
+                            <li><%= link_to "SAIR", destroy_user_session_path, :method => :delete  %></li>
+                          <% else %>
+                            <li><%= link_to "CADASTRAR", new_user_registration_path %></li>
+                            <li><%= link_to "ENTRAR", new_user_session_path %></li>
+                          <% end %>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- MENU SECTION END-->
+    <div class="content-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-head-line"><%= yield :title %></h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <%= bootstrap_flash %> 
+                <%= yield %>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+        </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2015 SoldGambiarra Solutions
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

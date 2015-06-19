@@ -1,0 +1,66 @@
+<%= form_for(@ad) do |f| %>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= f.label 'Título' %><br>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= f.label 'Preço' %><br>
+        <%= f.text_field :price, class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= f.label "Tipo" %><br>
+        <%= select_tag(:ad_type, options_for_select([["Veículo", 1], ["Imóvel", 2]]), 
+                                                            {:prompt => "Selecionar...",
+                                                             :required => true,
+                                                             :class => "form-control"}) %>
+      </div>
+    </div>
+  </div>
+
+  <div id="exit_dialog"></div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= f.label "Foto" %><br>
+        <%= f.file_field :photo %>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  
+  <%= f.submit "Criar", class: 'btn btn-success' %>
+
+<% end %>
+
+<script type="text/javascript">
+  $('#ad_type').on('change', function() {
+    if(this.value != ""){
+      if(this.value == "1") {
+        $('#exit_dialog').html('<%= j(render partial: "form_vehicle") %>');
+      }
+      else if(this.value == "2") {
+        $('#exit_dialog').html('<%= j(render partial: "form_building") %>');
+      }
+    }
+    else $('#exit_dialog').html('');
+  });
+
+  $('#ad_price').maskMoney({thousands:'.', decimal:',', affixesStay: false});
+</script>

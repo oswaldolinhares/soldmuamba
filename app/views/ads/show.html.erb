@@ -1,0 +1,32 @@
+<% content_for :title do %>
+  Anúncio
+<% end %>
+
+<h2 class="title-text"><%= @ad.title %> <small><%= number_to_currency(@ad.price, :unit => "R$", :separator => ",", :delimiter => "", :format => "%u %n") %></small></h2>
+
+<div class="row">
+
+  <div class="col-md-6">
+   <%= image_tag(@ad.photo.url, width: 400) %>
+  </div>
+  <div class="col-md-6">
+    <p><div class="title-text">Contato do Vendedor</div><%= @ad.user.email %></p>
+      <% if @ad.vehicle %>
+        <p><div class="title-text">Descrição</div><%= @ad.vehicle.description %></p>
+        <p><div class="title-text">Nome do Veículo</div><%= @ad.vehicle.name %></p>
+        <p><div class="title-text">Marca</div><%= @ad.vehicle.brand %></p>
+        <p><div class="title-text">Ano</div><%= @ad.vehicle.year %></p>
+        <p><div class="title-text">Kilometragem</div><%= @ad.vehicle.km %></p>
+        <p><div class="title-text">Descrição do Veículo</div><%= @ad.vehicle.description_vehicle %></p>
+      <% end %>
+
+      <% if @ad.building %>
+        <p><div class="title-text">Descrição</div><%= @ad.building.description %></p>
+        <p><div class="title-text">Tipo de Imóvel</div><%= @ad.building.building_type %></p>
+        <p><div class="title-text">Endereço</div> <%= @ad.building.address %></p>
+        <p><div class="title-text">Área quadrada</div><%= @ad.building.area %></p>
+        <p><div class="title-text">Número de Quartos</div><%= @ad.building.rooms_number %></p>
+        <p><div class="title-text">Número de Vagas Estacionamento</div><%= @ad.building.parking_number %></p>
+      <% end %>
+  </div>
+</div>

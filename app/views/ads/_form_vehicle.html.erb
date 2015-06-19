@@ -1,0 +1,57 @@
+
+    <%= fields_for :vehicle_attributes do |vehicle_form| %>
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= vehicle_form.label "Descrição" %>
+        <%= vehicle_form.text_area :description, class: 'form-control'  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= vehicle_form.label "Nome" %>
+        <%= vehicle_form.text_field :name, class: 'form-control'  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5"> 
+        <%= vehicle_form.label "Marca" %>
+        <%= vehicle_form.text_field :brand, class: 'form-control'  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">        
+        <%= vehicle_form.label "Ano" %>
+        <%= vehicle_form.text_field :year, class: 'form-control'  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= vehicle_form.label "Kilometragem" %>
+        <%= vehicle_form.text_field :km, class: 'form-control'  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= vehicle_form.label "Descrição do Veículo" %>
+        <%= vehicle_form.text_area :description_vehicle, class: 'form-control'  %>
+      </div>
+    </div>
+  </div>
+
+    <% end %>

@@ -1,0 +1,164 @@
+<%= form_for(@ad) do |f| %>
+  <% if @ad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+      <%= @f = f %>
+      <ul>
+      <% @ad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= f.label 'Título' %><br>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= f.label 'Preço' %><br>
+        <%= f.text_field :price, class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <% if @ad.vehicle %>
+    <%= fields_for @ad.vehicle do |vehicle_form| %>
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">
+            <%= vehicle_form.label "Descrição" %>
+            <%= vehicle_form.text_area :description, class: 'form-control'  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">
+            <%= vehicle_form.label "Nome" %>
+            <%= vehicle_form.text_field :name, class: 'form-control'  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5"> 
+            <%= vehicle_form.label "Marca" %>
+            <%= vehicle_form.text_field :brand, class: 'form-control'  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">        
+            <%= vehicle_form.label "Ano" %>
+            <%= vehicle_form.text_field :year, class: 'form-control'  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">
+            <%= vehicle_form.label "Kilometragem" %>
+            <%= vehicle_form.text_field :km, class: 'form-control'  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">
+            <%= vehicle_form.label "Descrição do Veículo" %>
+            <%= vehicle_form.text_area :description_vehicle, class: 'form-control'  %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if @ad.building %>
+    <%= fields_for @ad.building do |building_form| %>
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">
+          <%= building_form.label "Tipo de Imóvel" %>
+          <%= building_form.text_field :building_type, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">
+          <%= building_form.label "Área" %>
+          <%= building_form.text_field :area, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">
+          <%= building_form.label 'Endereço' %>
+          <%= building_form.text_field :address, class: 'form-control'  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">      
+          <%= building_form.label 'Número de Quartos' %>
+          <%= building_form.text_field :rooms_number, class: 'form-control'  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">
+          <%= building_form.label "Vagas de Estacionamento" %>
+          <%= building_form.text_field :parking_number, class: 'form-control'  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="control-group">
+          <div class="col-xs-12 col-md-5">
+          <%= building_form.label "Descrição" %>
+          <%= building_form.text_area :description, class: 'form-control'  %>
+          </div>
+        </div>
+      </div>
+    <% end %>   
+  <% end %>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= f.label "Foto" %><br>
+        <%= f.file_field :photo %>
+      </div>
+    </div>
+  </div>
+
+  <br>
+    <%= f.submit "Editar", class: "btn btn-info" %>
+
+<% end %>
+
+<script type="text/javascript">
+  $('#ad_price').maskMoney({thousands:'.', decimal:',', affixesStay: false}).maskMoney('mask');
+</script>

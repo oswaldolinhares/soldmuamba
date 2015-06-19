@@ -1,0 +1,28 @@
+<% content_for :title do %>
+  Entrar
+<% end %>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= f.label "E-mail" %><br />
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group">
+      <div class="col-xs-12 col-md-5">
+        <%= f.label 'Senha' %><br />
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Entrar", class: 'btn btn-success' %>
+  </div>
+
+<% end %>
