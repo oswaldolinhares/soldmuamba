@@ -7,7 +7,7 @@
     <h3 class="title-text text-center"><%= ad.title.capitalize %></h3>
     <%= link_to(image_tag(ad.photo.thumb.url), ad) %>
     <div class="retangle">
-      <p class="text-center"><%= number_to_currency(ad.price, :unit => "R$", :separator => ",", :delimiter => "", :format => "%u %n") %></p>
+      <p class="text-center"><%= number_to_currency(ad.price, :unit => "R$", :separator => ",", :delimiter => ".", :format => "%u %n") %></p>
     </div>
   </div>
 <% end %>

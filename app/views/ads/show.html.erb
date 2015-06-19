@@ -2,7 +2,7 @@
   Anúncio
 <% end %>
 
-<h2 class="title-text"><%= @ad.title %> <small><%= number_to_currency(@ad.price, :unit => "R$", :separator => ",", :delimiter => "", :format => "%u %n") %></small></h2>
+<h2 class="title-text"><%= @ad.title %> <small><%= number_to_currency(@ad.price, :unit => "R$", :separator => ",", :delimiter => ".", :format => "%u %n") %></small></h2>
 
 <div class="row">
 
